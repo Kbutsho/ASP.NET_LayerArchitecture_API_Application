@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccessFactory.cs" />
     <Compile Include="Database\Admin.cs">
       <DependentUpon>ProjectModel.tt</DependentUpon>
     </Compile>
@@ -107,7 +108,12 @@
     <Compile Include="Database\User.cs">
       <DependentUpon>ProjectModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repos\CategoryRepo.cs" />
+    <Compile Include="Repos\DeliveryRepo.cs" />
+    <Compile Include="Repos\OrderRepo.cs" />
+    <Compile Include="Repos\ProductRepo.cs" />
     <Compile Include="Repos\UserRepo.cs" />
   </ItemGroup>
   <ItemGroup />

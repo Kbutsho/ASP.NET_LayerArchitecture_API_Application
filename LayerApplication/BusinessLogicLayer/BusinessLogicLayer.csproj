@@ -44,8 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\CategoryModel.cs" />
+    <Compile Include="Entities\DeliveryModel.cs" />
+    <Compile Include="Entities\OrderModel.cs" />
+    <Compile Include="Entities\ProductModel.cs" />
     <Compile Include="Entities\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CategoryService.cs" />
+    <Compile Include="Services\DeliveryService.cs" />
+    <Compile Include="Services\OrderService.cs" />
+    <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
