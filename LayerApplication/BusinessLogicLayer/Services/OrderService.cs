@@ -26,5 +26,11 @@ namespace BusinessLogicLayer.Services
             var data = mapper.Map<List<OrderModel>>(DataAccessFactory.OrderDataAccess().GetByUserId(id));
             return data;
         }
+        public static void Edit(OrderModel e)
+        {
+            var data = new Mapper(new MapperConfiguration(cfg =>
+                cfg.CreateMap<OrderModel, Order>())).Map<Order>(e);
+            DataAccessFactory.OrderDataAccess().Edit(data);
+        }
     }
 }

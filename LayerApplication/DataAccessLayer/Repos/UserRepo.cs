@@ -35,7 +35,7 @@ namespace DataAccessLayer.Repos
                         select e).FirstOrDefault();
                     if (s != null)
                     {
-
+                        // error message show
                     }
                     else
                     {
@@ -60,7 +60,7 @@ namespace DataAccessLayer.Repos
                         select e).FirstOrDefault();
                     if (s != null)
                     {
-
+                        // error message show
                     }
                     else
                     {

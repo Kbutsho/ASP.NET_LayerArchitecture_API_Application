@@ -31,7 +31,9 @@ namespace DataAccessLayer.Repos
 
         public void Edit(Order obj)
         {
-            throw new NotImplementedException();
+            var ct = db.Orders.FirstOrDefault(em => em.Id == obj.Id);
+            db.Entry(ct).CurrentValues.SetValues(obj);
+            db.SaveChanges();
         }
 
         public void Delete(int id)

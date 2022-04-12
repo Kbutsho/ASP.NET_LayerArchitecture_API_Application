@@ -22,7 +22,16 @@ namespace DataAccessLayer.Repos
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            // delete from order details table
+            var orderDetailsTable = (from pt in db.OrderDetails
+                where pt.ProductId == id
+                select pt).ToList();
+            foreach (var items in orderDetailsTable)
+            {
+                db.OrderDetails.Remove(items);
+            }
+
+            // delete from product rating
         }
 
        

@@ -28,5 +28,8 @@ namespace BusinessLogicLayer.Services
             var data = mapper.Map<List<ProductModel>>(DataAccessFactory.ProductDataAccess().GetByUserId(id));
             return data;
         }
+        // update
+        // delete
+
     }
 }

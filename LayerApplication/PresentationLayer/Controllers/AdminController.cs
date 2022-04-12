@@ -23,6 +23,13 @@ namespace PresentationLayer.Controllers
             return UserService.SellerList();
         }
 
+
+
+
+
+
+
+
         [Route("api/seller/add")]
         [HttpPost]
         public void AddSeller(UserModel e)
