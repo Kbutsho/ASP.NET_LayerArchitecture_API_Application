@@ -32,6 +32,11 @@ namespace DataAccessLayer
        {
            return new CategoryRepo(db);
        }
+
+       public static IAuth AuthDataAccess()
+       {
+           return new UserRepo(db);
+       }
        
     }
 }

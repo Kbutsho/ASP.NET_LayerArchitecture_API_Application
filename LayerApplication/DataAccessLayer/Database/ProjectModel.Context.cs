@@ -38,6 +38,7 @@ namespace DataAccessLayer.Database
         public virtual DbSet<ServiceRating> ServiceRatings { get; set; }
         public virtual DbSet<Service> Services { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<Token> Tokens { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

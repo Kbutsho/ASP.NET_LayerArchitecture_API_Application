@@ -9,7 +9,7 @@ using DataAccessLayer.Database;
 
 namespace DataAccessLayer.Repos
 {
-    public class UserRepo : IRepository<User, int>
+    public class UserRepo : IRepository<User, int>,IAuth
     {
         private ProjectEntities db;
         public UserRepo(ProjectEntities db)
@@ -299,6 +299,40 @@ namespace DataAccessLayer.Repos
         public List<User> GetByUserId(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public Token Authenticate(User user)
+        {
+            
+            var u = db.Users.FirstOrDefault(e => e.Email.Equals(user.Email) && e.PassWord.Equals(user.PassWord));
+            Token t = null;
+            if (u != null)
+            {
+                string token = Guid.NewGuid().ToString();
+                t = new Token();
+                t.UserId = u.Id;
+                t.AccessToken = token;
+                t.Role = u.Role;
+                t.Email = u.Email;
+                t.CreatedAt = DateTime.Now;
+                db.Tokens.Add(t);
+                db.SaveChanges();
+            }
+
+            return t;
+        }
+
+        public bool IsAuthenticated(string token)
+        {
+            var rs = db.Tokens.Any(e => e.AccessToken.Equals(token) && e.ExpiredAt == null);
+            return rs;
+        }
+
+        public void Logout(Token token)
+        {
+            var e = db.Tokens.FirstOrDefault(en => en.AccessToken == token.AccessToken);
+            db.Entry(e).CurrentValues.SetValues(token);
+            db.SaveChanges();
         }
     }
 }

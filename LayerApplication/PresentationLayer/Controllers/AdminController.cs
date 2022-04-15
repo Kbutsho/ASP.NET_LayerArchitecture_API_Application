@@ -4,18 +4,22 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using BusinessLogicLayer.Entities;
 using BusinessLogicLayer.Services;
+using PresentationLayer.Auth;
 
 namespace PresentationLayer.Controllers
 {
+    [EnableCors("*", "*", "*")]
+ 
     public class AdminController : ApiController
     {
 
 
 
         // Seller operation
-       
+        [customAuth]
         [Route("api/sellerList")]
         [HttpGet]
         public List<UserModel> Seller()

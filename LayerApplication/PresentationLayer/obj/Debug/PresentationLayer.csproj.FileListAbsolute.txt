@@ -76,3 +76,6 @@ G:\ASP.NET\Final Project\LayerApplication\PresentationLayer\obj\Debug\Presentati
 G:\ASP.NET\Final Project\LayerApplication\PresentationLayer\obj\Debug\PresentationLayer.pdb
 G:\ASP.NET\Final Project\LayerApplication\PresentationLayer\bin\EntityFramework.SqlServer.dll
 G:\ASP.NET\Final Project\LayerApplication\PresentationLayer\bin\EntityFramework.SqlServer.xml
+G:\ASP.NET\Final Project\LayerApplication\PresentationLayer\bin\System.Web.Cors.dll
+G:\ASP.NET\Final Project\LayerApplication\PresentationLayer\bin\System.Web.Http.Cors.dll
+G:\ASP.NET\Final Project\LayerApplication\PresentationLayer\bin\System.Web.Http.Cors.xml
