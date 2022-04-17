@@ -117,6 +117,7 @@
     <Compile Include="Repos\CategoryRepo.cs" />
     <Compile Include="Repos\DeliveryRepo.cs" />
     <Compile Include="Repos\OrderRepo.cs" />
+    <Compile Include="Repos\ProductRatingRepo.cs" />
     <Compile Include="Repos\ProductRepo.cs" />
     <Compile Include="Repos\UserRepo.cs" />
   </ItemGroup>

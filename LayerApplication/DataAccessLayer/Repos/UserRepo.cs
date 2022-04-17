@@ -330,8 +330,11 @@ namespace DataAccessLayer.Repos
 
         public void Logout(Token token)
         {
-            var e = db.Tokens.FirstOrDefault(en => en.AccessToken == token.AccessToken);
-            db.Entry(e).CurrentValues.SetValues(token);
+            var tokenTable = (from st in db.Tokens
+                where st.AccessToken.Equals(token.AccessToken)
+                select st).FirstOrDefault();
+
+            tokenTable.ExpiredAt = DateTime.Now;
             db.SaveChanges();
         }
     }

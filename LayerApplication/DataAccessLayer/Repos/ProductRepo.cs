@@ -22,7 +22,6 @@ namespace DataAccessLayer.Repos
 
         public void Delete(int id)
         {
-            // delete from order details table
             var orderDetailsTable = (from pt in db.OrderDetails
                 where pt.ProductId == id
                 select pt).ToList();
@@ -30,8 +29,19 @@ namespace DataAccessLayer.Repos
             {
                 db.OrderDetails.Remove(items);
             }
-
-            // delete from product rating
+            //delete from product Rating Table
+            var productRatingTable = (from pt in db.ProductRatings
+                where pt.ProductId == id
+                select pt).ToList();
+            foreach (var items in productRatingTable)
+            {
+                db.ProductRatings.Remove(items);
+            }
+            var productTable = (from st in db.Products
+                where st.Id == id
+                select st).FirstOrDefault();
+            db.Products.Remove(productTable);
+            db.SaveChanges();
         }
 
        
@@ -60,5 +70,7 @@ namespace DataAccessLayer.Repos
                 select sp).ToList();
             return sellerProducts;
         }
+
+
     }
 }

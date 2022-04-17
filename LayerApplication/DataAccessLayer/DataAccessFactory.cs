@@ -32,8 +32,12 @@ namespace DataAccessLayer
        {
            return new CategoryRepo(db);
        }
+       public static IRepository<ProductRating, int> ProductRatingDataAccess()
+       {
+           return new ProductRatingRepo(db);
+       }
 
-       public static IAuth AuthDataAccess()
+        public static IAuth AuthDataAccess()
        {
            return new UserRepo(db);
        }

@@ -16,8 +16,6 @@ namespace PresentationLayer.Controllers
     public class AdminController : ApiController
     {
 
-
-
         // Seller operation
         [customAuth]
         [Route("api/sellerList")]
@@ -27,13 +25,7 @@ namespace PresentationLayer.Controllers
             return UserService.SellerList();
         }
 
-
-
-
-
-
-
-
+        [customAuth]
         [Route("api/seller/add")]
         [HttpPost]
         public void AddSeller(UserModel e)
@@ -41,6 +33,8 @@ namespace PresentationLayer.Controllers
             UserService.Add(e);
         }
 
+
+        [customAuth]
         [Route("api/seller/edit")]
         [HttpPost]
         public void EditSeller(UserModel e)
@@ -48,6 +42,8 @@ namespace PresentationLayer.Controllers
             UserService.Edit(e);
         }
 
+
+        [customAuth]
         [Route("api/seller/delete/{id}")]
         [HttpDelete]
         public void DeleteSeller(int id)
@@ -58,6 +54,7 @@ namespace PresentationLayer.Controllers
 
 
         // Customer operation
+        [customAuth]
         [Route("api/customerList")]
         [HttpGet]
         public List<UserModel> Customer()
@@ -66,6 +63,7 @@ namespace PresentationLayer.Controllers
         }
 
 
+        [customAuth]
         [Route("api/customer/add")]
         [HttpPost]
 
@@ -74,12 +72,15 @@ namespace PresentationLayer.Controllers
             UserService.Add(e);
         }
 
+        [customAuth]
         [Route("api/customer/edit")]
         [HttpPost]
         public void EditCustomer(UserModel e)
         {
             UserService.Edit(e);
         }
+
+        [customAuth]
         [Route("api/customer/delete/{id}")]
         [HttpDelete]
         public void DeleteCustomer(int id)
@@ -87,14 +88,17 @@ namespace PresentationLayer.Controllers
             UserService.Delete(id);
         }
 
-
         // Delivery boy operations
+        [customAuth]
         [Route("api/deliveryBoyList")]
         [HttpGet]
         public List<UserModel> DeliveryBoy()
         {
             return UserService.DeliveryBoyList();
         }
+
+        [customAuth]
+
         [Route("api/deliveryBoy/add")]
         [HttpPost]
 
@@ -102,12 +106,17 @@ namespace PresentationLayer.Controllers
         {
             UserService.Add(e);
         }
+
+
+        [customAuth]
         [Route("api/deliveryBoy/edit")]
         [HttpPost]
         public void EditDeliveryBoy(UserModel e)
         {
             UserService.Edit(e);
         }
+
+        [customAuth]
         [Route("api/deliveryBoy/delete/{id}")]
         [HttpDelete]
         public void DeleteDeliveryBoy(int id)
@@ -117,6 +126,8 @@ namespace PresentationLayer.Controllers
 
 
         // All user operation
+
+        [customAuth]
         [HttpGet]
         [Route("api/user/{id}")]
         public HttpResponseMessage Get(int id)
@@ -127,6 +138,7 @@ namespace PresentationLayer.Controllers
 
 
         // seller Product Operation 
+        [customAuth]
         [Route("api/productList")]
         [HttpGet]
         public List<ProductModel> Products()
@@ -134,7 +146,9 @@ namespace PresentationLayer.Controllers
             return ProductService.ProductList();
         }
 
-        [Route("api/seller/products/{id}")]
+
+        [customAuth]
+        [Route("api/seller/{id}/products")]
         [HttpGet]
         public List<ProductModel> SellerProducts(int id)
         {
@@ -143,6 +157,7 @@ namespace PresentationLayer.Controllers
 
         // customer order operation
 
+        [customAuth]
         [Route("api/orderList")]
         [HttpGet]
         public List<OrderModel> Orders()
@@ -150,7 +165,9 @@ namespace PresentationLayer.Controllers
             return OrderService.OrderList();
         }
 
-        [Route("api/customer/orders/{id}")]
+
+        [customAuth]
+        [Route("api/customer/{id}/orders")]
         [HttpGet]
         public List<OrderModel> CustomerOrders(int id)
         {
@@ -158,6 +175,8 @@ namespace PresentationLayer.Controllers
         }
 
         // Delivery boys Deliveries operation
+
+        [customAuth]
         [Route("api/deliveryList")]
         [HttpGet]
         public List<DeliveryModel> Deliveries()
@@ -165,7 +184,9 @@ namespace PresentationLayer.Controllers
             return DeliveryService.DeliveryList();
         }
 
-        [Route("api/deliveryBoy/deliveries/{id}")]
+
+        [customAuth]
+        [Route("api/deliveryBoy/{id}/deliveries")]
         [HttpGet]
         public List<DeliveryModel> DeliveryBoyDeliveries(int id)
         {
@@ -173,7 +194,7 @@ namespace PresentationLayer.Controllers
         }
 
 
-
+        [customAuth]
         [Route("api/categoryList")]
         [HttpGet]
         public List<CategoryModel> Categories()
@@ -181,6 +202,7 @@ namespace PresentationLayer.Controllers
             return CategoryService.CategoryList();
         }
 
+        [customAuth]
         [Route("api/category/add")]
         [HttpPost]
 
@@ -188,17 +210,30 @@ namespace PresentationLayer.Controllers
         {
             CategoryService.Add(e);
         }
+
+        [customAuth]
         [Route("api/category/edit")]
         [HttpPost]
         public void EditCategory(CategoryModel e)
         {
             CategoryService.Edit(e);
         }
+        [customAuth]
         [Route("api/category/delete/{id}")]
         [HttpDelete]
+
         public void DeleteCategory(int id)
         {
             CategoryService.Delete(id);
+        }
+
+
+        // Registration
+        [Route("api/registration")]
+        [HttpPost]
+        public void Registration(UserModel e)
+        {
+            UserService.Add(e);
         }
 
 

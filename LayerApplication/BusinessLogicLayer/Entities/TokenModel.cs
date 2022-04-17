@@ -13,5 +13,7 @@ namespace BusinessLogicLayer.Entities
         public string AccessToken { get; set; }
         public System.DateTime CreatedAt { get; set; }
         public DateTime? ExpiredAt { get; set; }
+        public string Email { get; set; }
+        public string Role { get; set; }
     }
 }
